@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TEST ROBLOX</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    #messages {
+      border: 2px solid #fff;
+      width: 300px;
+      height: 300px;
+      overflow-y: auto;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    input {
+      padding: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 16px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>TEST ROBLOX 🔥</h1>
+  <div id="messages"></div>
+  <input type="text" id="wordInput" placeholder="Écris ton mot...">
+  <button onclick="sendWord()">Envoyer</button>
+
+  <script>
+    const messagesDiv = document.getElementById('messages');
+
+    function sendWord() {
+      const input = document.getElementById('wordInput');
+      const word = input.value.trim();
+      if (word === "") return;
+      
+      // Affiche ton mot
+      const p = document.createElement('p');
+      p.innerText = "Toi : " + word;
+      messagesDiv.appendChild(p);
+      
+      // Simule l'envoi à ton pote
+      setTimeout(() => {
+        const p2 = document.createElement('p');
+        p2.innerText = "Ton pote a reçu : " + word;
+        p2.style.color = "#00ff00";
+        messagesDiv.appendChild(p2);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      }, 1000);
+      
+      input.value = "";
+      input.focus();
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+  </script>
+</body>
+</html>
+
